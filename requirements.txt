@@ -1,4 +1,5 @@
 customtkinter
 python-dotenv
 mysql-connector-python
-pandas 
+pandas
+google-generativeai

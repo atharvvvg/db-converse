@@ -1,7 +1,8 @@
 import customtkinter as ctk
 from ui.connect_dialog import ConnectDialog
 from services import db_service
-from core.app_state import current_app_state # Import app_state
+from core.app_state import current_app_state
+from ui.converse_frame import ConverseFrame
 
 class App(ctk.CTk):
     def __init__(self):
@@ -14,6 +15,9 @@ class App(ctk.CTk):
 
         self.connect_button = ctk.CTkButton(self, text="Connect to Database", command=self.open_connect_dialog)
         self.connect_button.pack(pady=10)
+
+        self.converse_frame = ConverseFrame(self)
+        self.converse_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
     def open_connect_dialog(self):
         dialog = ConnectDialog(self)

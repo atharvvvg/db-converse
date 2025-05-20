@@ -1,5 +1,5 @@
 import google.generativeai as genai
-from app.core.config import GOOGLE_API_KEY
+from core.config import GOOGLE_API_KEY
 
 if GOOGLE_API_KEY:
     genai.configure(api_key=GOOGLE_API_KEY)
