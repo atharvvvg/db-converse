@@ -23,4 +23,29 @@ def disconnect_from_db(connection):
     """Closes the database connection."""
     if connection and connection.is_connected():
         connection.close()
-        print("MySQL connection is closed.") 
+        print("MySQL connection is closed.")
+
+def get_table_names(connection):
+    """Fetches a list of table names from the connected database."""
+    if not connection or not connection.is_connected():
+        print("Not connected to a database.")
+        return []
+    cursor = None
+    try:
+        cursor = connection.cursor()
+        cursor.execute("SHOW TABLES;")
+        tables = [table[0] for table in cursor.fetchall()]
+        return tables
+    except Error as e:
+        print(f"Error fetching table names: {e}")
+        return []
+    finally:
+        if cursor:
+            cursor.close()
+
+def get_basic_schema_string(connection):
+    """Returns a simple string representation of the schema (table names)."""
+    table_names = get_table_names(connection)
+    if not table_names:
+        return "No tables found or unable to fetch schema."
+    return f"Tables: {', '.join(table_names)}" 
