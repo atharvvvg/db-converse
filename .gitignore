@@ -3,3 +3,5 @@ llm-prompts.txt
 __pycache__/
 *.pyc
 .env
+
+media/*

@@ -1,6 +1,6 @@
 # DB-Converse: Intelligent Database Interaction & Dashboard
 
-## 1. Why DB-Converse? (Purpose)
+## 1. Why DB-Converse?
 
 DB-Converse is a desktop application designed to simplify interactions with MySQL databases. Many users, including analysts, developers, and data scientists, often need to quickly query databases or get a visual summary of their data without writing complex SQL or setting up elaborate business intelligence tools. DB-Converse aims to bridge this gap by:
 
@@ -12,20 +12,27 @@ The core idea is to provide an intelligent assistant for your database, making d
 
 ## 2. Features (MVP)
 
+Below is a quick overview of the application's main interface:
+
+![DB-Converse Lander](media/lander.png)
+
 - **MySQL Database Connection:**
   - Securely connect to MySQL databases using a simple dialog (host, user, password, database name).
   - Connection status is displayed in the UI.
   - Connections are properly closed when the application exits.
+    ![DB-Converse Connection Dialog](media/connection.png)
 - **Conversational Queries (NL-to-SQL):**
   - Input natural language questions (e.g., "show all users", "list products with price over 50").
   - Utilizes Google Gemini API to translate natural language into SQL queries.
   - Displays the generated SQL query in the UI.
   - Executes the generated SQL (currently `SELECT` and `SHOW` statements for MVP) against the connected database.
   - Displays query results (or errors) in a text area.
+    ![DB-Converse Sample Query](media/sample_query.png)
 - **Basic Dashboard:**
   - A dedicated "Dashboard" tab.
   - Automatically generates and displays a bar chart showing row counts for each table in the connected database upon refresh.
   - Displays appropriate messages if not connected to a database, or if no tables/data are found.
+    ![DB-Converse Dashboard](media/dashboard.png)
 - **User Interface:**
   - Built with CustomTkinter for a modern look and feel.
   - Tabbed interface for "Converse" (NLQ) and "Dashboard" views.
